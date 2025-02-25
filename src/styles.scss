@@ -31,12 +31,11 @@
   url("/assets/font/Montserrat-ExtraBold.ttf") format("truetype");
 }
 @font-face {
-  font-family: "Montserrat-MediumItalic";
-  font-weight: 900;
+  font-family: "Montserrat-Italic";
   font-display: swap;
-  src: url("/assets/font/Montserrat-MediumItalic.woff2") format("woff2"),
-  url("/assets/font/Montserrat-MediumItalic.woff") format("woff"),
-  url("/assets/font/Montserrat-MediumItalic.ttf") format("truetype");
+  src: url("/assets/font/Montserrat-Italic.ttf") format("woff2"),
+  url("/assets/font/Montserrat-Italic.woff") format("woff"),
+  url("/assets/font/Montserrat-Italic.ttf") format("truetype");
 }
 * {
   font-family: "Montserrat-Light", serif;
@@ -52,11 +51,11 @@ body {
   color: var(--text-color);
   padding: 0;
   margin: 0;
-  min-height: 100%;
 }
 
 :root {
   --primary: #FF9A00;
   --secondary: #808080;
   --text-color: rgba(0, 0, 0, 0.87);
+  --alert-color: #CC4747;
 }
