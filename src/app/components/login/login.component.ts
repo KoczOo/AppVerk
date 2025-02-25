@@ -1,5 +1,5 @@
 import {Component, computed, inject, signal} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {emailValidator} from "../../validators/email-validator";
 
 @Component({
@@ -11,18 +11,18 @@ import {emailValidator} from "../../validators/email-validator";
 export class LoginComponent {
     private fb = inject(FormBuilder);
 
-    protected form = signal(<FormGroup>(this.fb.group({
-        email: ['', [Validators.required, emailValidator()]],
-        password: ['', [Validators.required]],
-    })));
+    protected form = this.fb.group({
+        email: new FormControl('', [Validators.required, emailValidator()]),
+        password: new FormControl('', [Validators.required]),
+    });
 
-    isRequired = (controlName: string) => computed(() => {
-        const control = this.form().get(controlName);
+    readonly isRequired = (controlName: string) => {
+        const control = this.form.get(controlName);
         return !! (control && control.invalid && control.touched && control.errors?.['required'] && !control.value );
-    })
+    }
 
-    isEmailValid = (controlName: string) => computed(() => {
-        const control = this.form().get(controlName);
+    readonly isEmailValid = (() => {
+        const control = this.form.get('email');
         return !! (control && control.invalid && control.touched && control.errors?.['invalidEmail']);
     })
 

@@ -9,18 +9,18 @@
                 <h5 class="section-body-card-title underline">LOGOWANIE</h5>
                 <hr class="break-line-section"/>
             </div>
-            <form [formGroup]="form()" (ngSubmit)="login(form())">
+            <form [formGroup]="form" (ngSubmit)="login(form)">
                 <div class="input-filed-container w-100 px-4 py-3">
                     <label class="input-label px-1" for="login">
                         E-mail
                     </label>
                     <input id="login" formControlName="email" type="text" required
-                           [ngClass]="{'invalid': isRequired('email')()}"
+                           [ngClass]="{'invalid': isRequired('email')}"
                            class="input-text"/>
-                    <span *ngIf="isRequired('email')()" class="validator-error">
+                    <span *ngIf="isRequired('email')" class="validator-error">
                         Pole jest wymagane
                     </span>
-                    <span *ngIf="isEmailValid('email')()" class="validator-error">
+                    <span *ngIf="isEmailValid()" class="validator-error">
                         Niepoprawny format e-mail
                     </span>
                 </div>
@@ -28,10 +28,10 @@
                     <label class="input-label px-1" for="password">
                         Hasło
                     </label>
-                    <input id="password" formControlName="password" type="text" required
-                           [ngClass]="{'invalid': isRequired('password')()}"
+                    <input id="password" formControlName="password" type="password" required
+                           [ngClass]="{'invalid': isRequired('password')}"
                            class="input-text"/>
-                    <span *ngIf="isRequired('password')()" class="validator-error">
+                    <span *ngIf="isRequired('password')" class="validator-error">
                         Pole jest wymagane
                     </span>
                 </div>
