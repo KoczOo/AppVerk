@@ -50,15 +50,20 @@
     border: 1px solid var(--primary);
   }
 }
+.login-button-container {
+  margin: 25px auto;
+}
 .btn-primary,
-.btn-primary:hover,
 .btn-primary:active,
 .btn-primary:visited,
 .btn-primary:focus {
   background-color: var(--primary);
   border-color: var(--primary);
   font-family: "Montserrat-Bold", serif;
-  margin: 25px 0;
   padding: 10px 100px;
   border-radius: 10px;
+}
+.btn-primary:hover {
+  background-color: #ffaa33;
+  border-color: #ffaa33;
 }

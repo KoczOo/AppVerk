@@ -6,12 +6,18 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './components/login/login.component';
 import {NgOptimizedImage} from "@angular/common";
+import { HeaderComponent } from './layout/header/header.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent
   ],
     imports: [
         BrowserModule,

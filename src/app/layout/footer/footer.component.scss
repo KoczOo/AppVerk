@@ -1,0 +1,14 @@
+.footer-container {
+  background-color: #242424;
+  overflow: hidden;
+  width: 100%;
+}
+.footer-logo {
+  height:  125px;
+  width: 125px;
+  margin-top: 10px;
+  @media only screen and (max-width: 700px) {
+    height: 80px;
+    width: 80px;
+  }
+}
