@@ -1,1 +1,62 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Montserrat-Light";
+  font-weight: normal;
+  font-display: swap;
+  src: url("/assets/font/Montserrat-Light.woff2") format("woff2"),
+  url("/assets/font/Montserrat-Light.woff") format("woff"),
+  url("/assets/font/Montserrat-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat-Medium";
+  font-weight: normal;
+  font-display: swap;
+  src: url("/assets/font/Montserrat-Medium.woff2") format("woff2"),
+  url("/assets/font/Montserrat-Medium.woff") format("woff"),
+  url("/assets/font/Montserrat-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat-Bold";
+  font-weight: bold;
+  font-display: swap;
+  src: url("/assets/font/Montserrat-Bold.woff2") format("woff2"),
+  url("/assets/font/Montserrat-Bold.woff") format("woff"),
+  url("/assets/font/Montserrat-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat-ExtraBold";
+  font-weight: 900;
+  font-display: swap;
+  src: url("/assets/font/Montserrat-ExtraBold.woff2") format("woff2"),
+  url("/assets/font/Montserrat-ExtraBold.woff") format("woff"),
+  url("/assets/font/Montserrat-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat-MediumItalic";
+  font-weight: 900;
+  font-display: swap;
+  src: url("/assets/font/Montserrat-MediumItalic.woff2") format("woff2"),
+  url("/assets/font/Montserrat-MediumItalic.woff") format("woff"),
+  url("/assets/font/Montserrat-MediumItalic.ttf") format("truetype");
+}
+* {
+  font-family: "Montserrat-Light", serif;
+}
+html {
+  font-size: 1rem;
+  height: 100%;
+  border: none !important;
+}
+body {
+  font-family: "Montserrat-Light", serif;
+  background-color: var(--surface-card);
+  color: var(--text-color);
+  padding: 0;
+  margin: 0;
+  min-height: 100%;
+}
+
+:root {
+  --primary: #FF9A00;
+  --secondary: #808080;
+  --text-color: rgba(0, 0, 0, 0.87);
+}
