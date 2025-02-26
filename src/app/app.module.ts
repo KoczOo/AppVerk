@@ -12,6 +12,7 @@ import { HomeComponent } from './pages/home/home.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoaderComponent } from './components/loader/loader.component';
+import {provideHttpClient} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -28,9 +29,10 @@ import { LoaderComponent } from './components/loader/loader.component';
         AppRoutingModule,
         NgOptimizedImage,
         ReactiveFormsModule,
-        NgbModule
+        NgbModule,
+
     ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

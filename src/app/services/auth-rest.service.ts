@@ -1,10 +1,7 @@
 import {Injectable} from '@angular/core';
 import {LoginCredentials} from "../dto/model/LoginCredentials";
 import {delay, Observable, of} from "rxjs";
-import { v4 as uuidv4 } from 'uuid';
-
-class UUID {
-}
+import { v4 as UUID } from 'uuid';
 
 @Injectable({
     providedIn: 'root'
@@ -12,7 +9,7 @@ class UUID {
 export class AuthRestService {
 
     login(loginCredentials: LoginCredentials): Observable<string> {
-        const mockToken = uuidv4();
+        const mockToken = UUID();
         return of(mockToken).pipe(
             delay(1000),
         )

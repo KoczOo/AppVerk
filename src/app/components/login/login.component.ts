@@ -14,7 +14,7 @@ export class LoginComponent {
     private authService: AuthService = inject(AuthService)
     isLoading = signal(false);
 
-    protected form = this.fb.group({
+    form = this.fb.group({
         email: new FormControl('', [Validators.required, emailValidator()]),
         password: new FormControl('', [Validators.required]),
     });
