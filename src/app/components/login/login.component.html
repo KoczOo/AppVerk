@@ -18,12 +18,12 @@
                     <input id="login" formControlName="email" type="text" required
                            [ngClass]="{'invalid': isRequired('email')}"
                            class="input-text"/>
-                    <span *ngIf="isRequired('email')" class="validator-error">
+                    <div *ngIf="isRequired('email')" class="validator-error shake">
                         Pole jest wymagane
-                    </span>
-                    <span *ngIf="isEmailValid()" class="validator-error">
+                    </div>
+                    <div *ngIf="isEmailValid()" class="validator-error shake">
                         Niepoprawny format e-mail
-                    </span>
+                    </div>
                 </div>
                 <div class="input-filed-container w-100 px-4 py-3">
                     <label class="input-label px-1" for="password">
@@ -32,9 +32,9 @@
                     <input id="password" formControlName="password" type="password" required
                            [ngClass]="{'invalid': isRequired('password')}"
                            class="input-text"/>
-                    <span *ngIf="isRequired('password')" class="validator-error">
+                    <div *ngIf="isRequired('password')" class="validator-error shake">
                         Pole jest wymagane
-                    </span>
+                    </div>
                 </div>
                 <div class="text-center login-button-container">
                     <button type="submit" class="btn btn-primary">ZALOGUJ</button>
