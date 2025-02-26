@@ -10,6 +10,8 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import {ReactiveFormsModule} from "@angular/forms";
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    LoaderComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         NgOptimizedImage,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NgbModule
     ],
   providers: [],
   bootstrap: [AppComponent]
