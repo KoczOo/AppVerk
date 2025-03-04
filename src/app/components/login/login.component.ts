@@ -1,7 +1,8 @@
-import {Component, inject, signal} from '@angular/core';
+import {Component, inject, signal, WritableSignal} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {emailValidator} from "../../validators/email-validator";
 import {AuthService} from "../../services/auth.service";
+import {finalize} from "rxjs";
 
 @Component({
     selector: 'app-login',
@@ -10,21 +11,22 @@ import {AuthService} from "../../services/auth.service";
     styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-    private fb = inject(FormBuilder);
-    private authService: AuthService = inject(AuthService)
-    isLoading = signal(false);
 
-    form = this.fb.group({
+    private fb: FormBuilder = inject(FormBuilder);
+    private authService: AuthService = inject(AuthService)
+    isLoading: WritableSignal<boolean> = signal(false);
+
+    form: FormGroup = this.fb.group({
         email: new FormControl('', [Validators.required, emailValidator()]),
         password: new FormControl('', [Validators.required]),
     });
 
-    readonly isRequired = (controlName: string) => {
+    readonly isRequired: (controlName: string) => boolean = (controlName: string) => {
         const control = this.form.get(controlName);
         return !!(control && control.invalid && control.touched && control.errors?.['required'] && !control.value);
     }
 
-    readonly isEmailValid = (() => {
+    readonly isEmailValid: () => boolean = (() => {
         const control = this.form.get('email');
         return !!(control && control.invalid && control.touched && control.errors?.['invalidEmail']);
     })
@@ -37,13 +39,8 @@ export class LoginComponent {
 
         this.isLoading.set(true);
 
-        this.authService.onLogin(loginForm).subscribe({
-            next: () => {
-                this.isLoading.set(false);
-            },
-            error: () => {
-                this.isLoading.set(false);
-            }
-        });
+        this.authService.onLogin(loginForm).subscribe(() =>
+            finalize(() => this.isLoading.set(false)));
     }
+
 }

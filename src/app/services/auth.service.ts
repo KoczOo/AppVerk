@@ -22,11 +22,11 @@ export class AuthService {
             form.value.password,
         )
         return this.authRestService.login(this.loginCredentials).pipe(
-            tap(token => {
+            tap((token: string) => {
                 this.authTokenService.setToken(token);
                 this.router.navigate(['/']);
             }),
-            catchError(error => {
+            catchError((error: Error) => {
                 this.authTokenService.removeToken();
                 console.error('Login failed:', error);
                 return throwError(() => error);
@@ -34,7 +34,7 @@ export class AuthService {
         );
     }
 
-    onLogout() {
+    onLogout(): void {
         this.authTokenService.removeToken();
         window.location.reload();
     }

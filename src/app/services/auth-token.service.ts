@@ -15,7 +15,7 @@ export class AuthTokenService {
     return !!localStorage.getItem("token");
   }
 
-  removeToken() {
+  removeToken(): void {
     localStorage.removeItem("token");
   }
 

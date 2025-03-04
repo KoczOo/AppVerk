@@ -2,64 +2,79 @@
   max-width: 520px;
   margin: 150px auto;
 }
+
 .appverk-logo {
   margin: 25px auto;
 }
+
 .login-card-header {
   text-align: center;
 }
+
 .login-card-body {
 
 }
+
 .login-card {
   padding: 1rem 2rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 8px;
 }
+
 .section-body-card-title {
   font-family: "Montserrat-Bold", serif;
   font-size: 20px;
   color: var(--secondary);
+
   &::first-letter {
     font-size: 1.25em !important;
   }
 }
+
 .break-line-section {
   border: solid var(--primary, rgba(122, 121, 122));
   border-width: 1px 0 0 0;
   opacity: 1;
   margin-top: -5px;
 }
+
 .input-label {
   font-family: "Montserrat-Bold", serif;
   color: var(--secondary);
   white-space: nowrap;
   font-size: 14px;
 }
+
 .input-text {
   color: var(--text-color);
   border: 1px solid rgba(0, 0, 0, 0.38);
   border-radius: 6px;
   padding: 5px 10px;
   width: 100%;
+
   &:hover {
     border: 1px solid var(--primary);
   }
+
   &:focus {
     outline: 1px solid var(--primary);
     border: 1px solid var(--primary);
   }
+
   &.invalid {
     border: 1px solid var(--alert-color);
   }
+
   &.invalid:focus {
     outline: 1px solid var(--alert-color);
     border: 1px solid var(--alert-color);
   }
 }
+
 .login-button-container {
   margin: 25px auto;
 }
+
 .btn-primary,
 .btn-primary:active,
 .btn-primary:visited,
@@ -70,10 +85,12 @@
   padding: 10px 100px;
   border-radius: 10px;
 }
+
 .btn-primary:hover {
   background-color: #ffaa33;
   border-color: #ffaa33;
 }
+
 .validator-error {
   color: var(--alert-color);
   font-family: "Montserrat-Italic", serif;
@@ -82,7 +99,7 @@
 }
 
 .shake {
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
 }
