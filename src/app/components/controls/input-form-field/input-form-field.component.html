@@ -1,0 +1,14 @@
+<div class="form-group w-100 px-4 py-3">
+    <label [for]="id">{{ label }}</label>
+    <input
+            class="input-text"
+            [type]="type"
+            [value]="value"
+            [ngClass]="{'invalid': errorMessage}"
+            (input)="onInput($event)"
+            (blur)="onTouched()"
+            [placeholder]="placeholder"
+            [disabled]="disabled"
+    />
+    <div *ngIf="errorMessage" class="validator-error shake">{{ errorMessage }}</div>
+</div>

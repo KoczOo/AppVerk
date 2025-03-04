@@ -21,16 +21,6 @@ export class LoginComponent {
         password: new FormControl('', [Validators.required]),
     });
 
-    readonly isRequired: (controlName: string) => boolean = (controlName: string) => {
-        const control = this.form.get(controlName);
-        return !!(control && control.invalid && control.touched && control.errors?.['required'] && !control.value);
-    }
-
-    readonly isEmailValid: () => boolean = (() => {
-        const control = this.form.get('email');
-        return !!(control && control.invalid && control.touched && control.errors?.['invalidEmail']);
-    })
-
     login(loginForm: FormGroup) {
         loginForm.markAllAsTouched();
         if (loginForm.invalid) {
@@ -43,4 +33,13 @@ export class LoginComponent {
             finalize(() => this.isLoading.set(false)));
     }
 
+    getErrorMessage(controlName: string): string | null {
+        const control = this.form.get(controlName);
+        if (!control || !control.touched || !control.errors) return null;
+
+        if (control.errors['required']) return 'Pole jest wymagane';
+        if (control.errors['invalidEmail']) return 'Nieprawidłowy format e-mail';
+
+        return null;
+    }
 }

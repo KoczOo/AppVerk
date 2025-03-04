@@ -12,31 +12,21 @@
                 <hr class="break-line-section"/>
             </div>
             <form [formGroup]="form" (ngSubmit)="login(form)">
-                <div class="input-filed-container w-100 px-4 py-3">
-                    <label class="input-label px-1" for="login">
-                        E-mail
-                    </label>
-                    <input id="login" formControlName="email" type="text" required
-                           [ngClass]="{'invalid': isRequired('email')}"
-                           class="input-text"/>
-                    <div *ngIf="isRequired('email')" class="validator-error shake">
-                        Pole jest wymagane
-                    </div>
-                    <div *ngIf="isEmailValid()" class="validator-error shake">
-                        Niepoprawny format e-mail
-                    </div>
-                </div>
-                <div class="input-filed-container w-100 px-4 py-3">
-                    <label class="input-label px-1" for="password">
-                        Hasło
-                    </label>
-                    <input id="password" formControlName="password" type="password" required
-                           [ngClass]="{'invalid': isRequired('password')}"
-                           class="input-text"/>
-                    <div *ngIf="isRequired('password')" class="validator-error shake">
-                        Pole jest wymagane
-                    </div>
-                </div>
+
+                <app-input-form-field
+                        id="email"
+                        type="text"
+                        placeholder="E-mail"
+                        formControlName="email"
+                        [errorMessage]="getErrorMessage('email')"/>
+
+                <app-input-form-field
+                        id="password"
+                        type="password"
+                        placeholder="Hasło"
+                        formControlName="password"
+                        [errorMessage]="getErrorMessage('password')"/>
+
                 <div class="text-center login-button-container">
                     <button type="submit" class="btn btn-primary">ZALOGUJ</button>
                 </div>
