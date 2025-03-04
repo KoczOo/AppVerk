@@ -2,7 +2,7 @@ import {Component, inject, signal, WritableSignal} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {emailValidator} from "../../validators/email-validator";
 import {AuthService} from "../../services/auth.service";
-import {finalize} from "rxjs";
+import {LoaderService} from "../../services/loader.service";
 
 @Component({
     selector: 'app-login',
@@ -14,7 +14,7 @@ export class LoginComponent {
 
     private fb: FormBuilder = inject(FormBuilder);
     private authService: AuthService = inject(AuthService)
-    isLoading: WritableSignal<boolean> = signal(false);
+    private loaderState: LoaderService = inject(LoaderService);
 
     form: FormGroup = this.fb.group({
         email: new FormControl('', [Validators.required, emailValidator()]),
@@ -27,10 +27,10 @@ export class LoginComponent {
             return;
         }
 
-        this.isLoading.set(true);
+        this.loaderState.changeLoaderState(true);
 
-        this.authService.onLogin(loginForm).subscribe(() =>
-            finalize(() => this.isLoading.set(false)));
+        this.authService.onLogin(loginForm).subscribe();
+
     }
 
     getErrorMessage(controlName: string): string | null {
