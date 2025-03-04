@@ -17,3 +17,7 @@ To execute unit tests with the [Karma](https://karma-runner.github.io) test runn
 ```bash
 ng test
 ```
+
+## App preview:
+
+<img src="src/assets/appverk_demo.png" alt="Demo AppVerk app PNG" width="500">
